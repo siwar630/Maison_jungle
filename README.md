@@ -1,6 +1,8 @@
-# creating my first React app ( Site de jardinage ,vente des plantes )
+# Creating my first React app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Voici mon site web ...
+
 ![Capture d’écran (83)](https://github.com/siwar630/Maison_jungle/assets/130316042/80d4c87d-854e-4df2-b560-a24339ddb0bb)
 
 ## Available Scripts
