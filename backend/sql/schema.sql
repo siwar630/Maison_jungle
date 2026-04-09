@@ -1,0 +1,4 @@
+-- Prisma est maintenant la source de verite du schema.
+-- Utilisez plutot:
+--   npm run prisma:push --prefix backend
+--   npm run db:seed --prefix backend

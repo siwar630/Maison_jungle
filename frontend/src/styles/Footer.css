@@ -1,0 +1,33 @@
+.lmj-footer {
+	color: var(--text);
+	padding: 26px;
+	margin: 18px 24px 0;
+	border-top: none;
+	background: #fbfdf8;
+	border: 1px solid var(--border);
+	border-radius: 20px;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: center;
+	font-weight: 500;
+	gap: 4px;
+}
+
+.lmj-footer-elem {
+	margin-bottom: 8px;
+}
+
+.lmj-footer input {
+	width: min(360px, 90%);
+	padding: 10px 12px;
+	border: 1px solid var(--border);
+	border-radius: 10px;
+}
+
+@media (max-width: 640px) {
+	.lmj-footer {
+		margin: 12px 16px 0;
+		padding: 20px 14px;
+	}
+}

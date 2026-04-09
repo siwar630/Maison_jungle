@@ -1,56 +1,40 @@
-# 🌿 Maison Jungle – Boutique en ligne de plantes  
-**Application React – Catalogue filtrable & gestion du panier**
+# Maison Jungle - Monorepo simple Frontend/Backend
 
-![Aperçu du site](https://github.com/siwar630/Maison_jungle/assets/130316042/80d4c87d-854e-4df2-b560-a24339ddb0bb)
+Le projet est maintenant organise en deux dossiers autonomes:
 
----
+- `frontend/` : application React
+- `backend/` : API Node.js/Express + Prisma + PostgreSQL
 
-## 📌 Description
+## Structure
 
-**Maison Jungle** est une application web développée avec **React**, représentant une boutique en ligne de plantes et d’accessoires.  
-Elle inclut un catalogue filtrable, un système de panier, et une interface moderne, simple et intuitive.
+```text
+Maison_jungle/
+	frontend/
+	backend/
+```
 
-Ce projet m’a permis de pratiquer les bases de **React**, notamment l’utilisation des **hooks**, la gestion du **state**, et la création de **composants réutilisables**.
+## Demarrage rapide
 
----
-
-## 🛠️ Technologies utilisées
-
-- ⚛️ **React**
-- 🟨 **JavaScript (ES6+)**
-- 🎨 **HTML / CSS**
-- 🌐 **GitHub Pages** (déploiement)
-
----
-
-## ✨ Fonctionnalités principales
-
-### 🔎 Catalogue filtrable
-- Filtre par **catégorie**
-- Filtre par **prix**
-- Tri par **popularité**
-- Affichage dynamique selon les critères
-
-### 🛒 Panier d’achat
-- Ajout / suppression de produits
-- Calcul automatique du total
-- Gestion via Local Storage ou State
-
-### 🧩 Architecture React propre
-- Composants réutilisables  
-- Hooks personnalisés  
-- Logique séparée (UI, data, state)
-
-### 🚀 Déploiement GitHub Pages
-- Build optimisé  
-- Accessible publiquement via GitHub  
-
----
-
-## ▶️ Installation & lancement
-
-Dans le répertoire du projet :
+### 1) Lancer le backend
 
 ```bash
+cd backend
+npm install
+npm run prisma:generate
+npm run prisma:push
+npm run db:seed
+npm run dev
+```
+
+### 2) Lancer le frontend (dans un 2e terminal)
+
+```bash
+cd frontend
 npm install
 npm start
+```
+
+## Documentation detaillee
+
+- Voir `frontend/README.md` pour le front
+- Voir `backend/README.md` pour le back

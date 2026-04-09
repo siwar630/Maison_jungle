@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
+
+:root {
+  --bg-soft: #f5f8ef;
+  --bg-strong: #e7efdb;
+  --surface: #ffffff;
+  --text: #172015;
+  --text-muted: #4f5f4b;
+  --brand: #2a8f5c;
+  --brand-deep: #1c6a44;
+  --accent: #f1c66d;
+  --border: #d5dfc5;
+  --shadow: 0 16px 40px rgba(23, 32, 21, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top right, #f9f5e8, transparent 35%),
+    linear-gradient(140deg, var(--bg-soft), var(--bg-strong));
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
