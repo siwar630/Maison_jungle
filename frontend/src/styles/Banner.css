@@ -35,6 +35,99 @@
 	font-size: 0.95rem;
 }
 
+.lmj-auth-panel {
+	display: flex;
+	gap: 10px;
+	margin-top: 12px;
+	flex-wrap: wrap;
+}
+
+.lmj-auth-panel input,
+.lmj-auth-panel button {
+	padding: 8px 10px;
+	border-radius: 10px;
+	border: 1px solid var(--border);
+}
+
+.lmj-auth-panel button {
+	cursor: pointer;
+	background: #fff;
+}
+
+.lmj-hero-actions {
+	display: flex;
+	gap: 10px;
+	margin-top: 14px;
+	flex-wrap: wrap;
+}
+
+.lmj-get-started,
+.lmj-ghost-button {
+	padding: 10px 14px;
+	border-radius: 12px;
+	border: 1px solid var(--border);
+	cursor: pointer;
+	font-weight: 700;
+}
+
+.lmj-get-started {
+	background: linear-gradient(90deg, var(--brand), var(--brand-deep));
+	color: #fff;
+}
+
+.lmj-ghost-button {
+	background: #fff;
+	color: var(--text);
+}
+
+.lmj-error {
+	margin-top: 6px;
+	color: #ae2f2f;
+	display: block;
+}
+
+.lmj-modal-backdrop {
+	position: fixed;
+	inset: 0;
+	background: rgba(12, 20, 10, 0.56);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 20;
+	padding: 16px;
+}
+
+.lmj-modal {
+	width: min(520px, 100%);
+	background: #fff;
+	border-radius: 20px;
+	padding: 20px;
+	box-shadow: var(--shadow);
+	border: 1px solid var(--border);
+}
+
+.lmj-modal-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 10px;
+}
+
+.lmj-modal-close {
+	border: none;
+	background: transparent;
+	font-size: 1.6rem;
+	cursor: pointer;
+	line-height: 1;
+}
+
+.lmj-auth-actions {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
 @media (max-width: 640px) {
 	.lmj-banner {
 		margin: 16px 16px 0;
@@ -48,5 +141,9 @@
 	.lmj-logo {
 		height: 52px;
 		width: 52px;
+	}
+
+	.lmj-modal {
+		padding: 16px;
 	}
 }

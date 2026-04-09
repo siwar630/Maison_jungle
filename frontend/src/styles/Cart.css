@@ -73,6 +73,20 @@
 	text-transform: capitalize;
 }
 
+.lmj-cart-item-actions {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.lmj-cart-item-actions button {
+	border: 1px solid var(--border);
+	background: #fff;
+	padding: 3px 8px;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
 .lmj-cart-total {
 	padding: 10px;
 	border-radius: 10px;

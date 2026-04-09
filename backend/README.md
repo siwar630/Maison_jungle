@@ -21,6 +21,7 @@ Copiez `.env.example` en `.env`:
 ```env
 PORT=4000
 DATABASE_URL=postgresql://postgres:postgres@localhost:5432/maison_jungle
+JWT_SECRET=change-this-secret
 ```
 
 ## Initialiser la base
@@ -42,5 +43,24 @@ API disponible sur http://localhost:4000
 ## Endpoints utiles
 
 - GET /api/health
-- GET /api/plants
+- GET /api/plants?page=1&pageSize=6&search=mon&category=classique
 - GET /api/categories
+- POST /api/auth/register
+- POST /api/auth/login
+- GET /api/cart
+- POST /api/cart/items
+- PUT /api/cart/items/:plantId
+- DELETE /api/cart/items/:plantId
+- DELETE /api/cart
+- POST /api/orders/checkout
+
+## Validation et erreurs
+
+- Validation des payloads avec Zod
+- Gestion d'erreurs centralisee (messages API coherents)
+
+## Tests
+
+```bash
+npm test
+```

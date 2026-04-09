@@ -1,6 +1,6 @@
 # Frontend - Maison Jungle
 
-Application React (UI catalogue + panier).
+Application React (catalogue + auth + panier connecte a l'API backend).
 
 ## Prerequis
 
@@ -28,6 +28,19 @@ npm start
 ```
 
 Application disponible sur http://localhost:3000
+
+## Fonctionnalites front
+
+- Authentification JWT (inscription/connexion)
+- Catalogue avec pagination + recherche + filtre categorie
+- Panier synchronise via API (plus de localStorage panier)
+- Checkout via backend
+
+## Tests
+
+```bash
+npm test -- --watchAll=false
+```
 
 ## Build production
 
