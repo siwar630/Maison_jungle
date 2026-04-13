@@ -4,12 +4,15 @@ import logo from '../assets/logo.png'
 import Cart from './Cart'
 import Footer from './Footer'
 import ShoppingList from './ShoppingList'
+import OrdersPanel from './OrdersPanel'
 import {
 	addCartItem,
+	cancelOrder,
 	checkout,
 	clearCart,
 	fetchCart,
 	fetchCurrentUser,
+	fetchOrders,
 	login,
 	register,
 	removeCartItem,
@@ -34,6 +37,10 @@ function App() {
 	const [cartError, setCartError] = useState('')
 	const [isLoadingCart, setIsLoadingCart] = useState(false)
 	const [isCheckingOut, setIsCheckingOut] = useState(false)
+	const [orders, setOrders] = useState([])
+	const [isLoadingOrders, setIsLoadingOrders] = useState(false)
+	const [isCancellingOrder, setIsCancellingOrder] = useState(false)
+	const [ordersError, setOrdersError] = useState('')
 
 	const token = auth?.token
 
@@ -97,9 +104,34 @@ function App() {
 			}
 		}
 
+		async function loadOrders() {
+			if (!token) {
+				setOrders([])
+				return
+			}
+
+			setIsLoadingOrders(true)
+			setOrdersError('')
+			try {
+				const payload = await fetchOrders(token)
+				if (!isCancelled) {
+					setOrders(payload.items || [])
+				}
+			} catch (error) {
+				if (!isCancelled) {
+					setOrdersError(error.message)
+				}
+			} finally {
+				if (!isCancelled) {
+					setIsLoadingOrders(false)
+				}
+			}
+		}
+
 		refreshSession().then((isSessionValid) => {
 			if (!isCancelled && isSessionValid) {
 				loadCart()
+				loadOrders()
 			}
 		})
 
@@ -250,6 +282,7 @@ function App() {
 		try {
 			await checkout(token)
 			setCart([])
+			await handleRefreshOrders()
 		} catch (error) {
 			setCartError(error.message)
 		} finally {
@@ -257,10 +290,46 @@ function App() {
 		}
 	}
 
+	async function handleRefreshOrders() {
+		if (!token) {
+			return
+		}
+
+		setOrdersError('')
+		setIsLoadingOrders(true)
+		try {
+			const payload = await fetchOrders(token)
+			setOrders(payload.items || [])
+		} catch (error) {
+			setOrdersError(error.message)
+		} finally {
+			setIsLoadingOrders(false)
+		}
+	}
+
+	async function handleCancelOrder(orderId) {
+		if (!token) {
+			return
+		}
+
+		setOrdersError('')
+		setIsCancellingOrder(true)
+		try {
+			await cancelOrder(token, orderId)
+			await handleRefreshOrders()
+		} catch (error) {
+			setOrdersError(error.message)
+		} finally {
+			setIsCancellingOrder(false)
+		}
+	}
+
 	function handleLogout() {
 		setAuth(null)
 		setCart([])
+		setOrders([])
 		setCartError('')
+		setOrdersError('')
 		resetAuthForm()
 	}
 
@@ -371,15 +440,26 @@ function App() {
 				</div>
 			) : null}
 			<div className='lmj-layout-inner'>
-				<Cart
-					cart={cart}
-					onClearCart={handleClearCart}
-					onUpdateQuantity={handleUpdateQuantity}
-					onRemoveItem={handleRemoveItem}
-					onCheckout={handleCheckout}
-					isLoading={isLoadingCart}
-					isCheckingOut={isCheckingOut}
-				/>
+				<div className='lmj-side-panel'>
+					<Cart
+						cart={cart}
+						onClearCart={handleClearCart}
+						onUpdateQuantity={handleUpdateQuantity}
+						onRemoveItem={handleRemoveItem}
+						onCheckout={handleCheckout}
+						isLoading={isLoadingCart}
+						isCheckingOut={isCheckingOut}
+					/>
+					<OrdersPanel
+						orders={orders}
+						onRefresh={handleRefreshOrders}
+						onCancel={handleCancelOrder}
+						isLoading={isLoadingOrders}
+						isCancelling={isCancellingOrder}
+						error={ordersError}
+						disabled={!token}
+					/>
+				</div>
 				<ShoppingList onAddToCart={handleAddToCart} />
 			</div>
 			<Footer />

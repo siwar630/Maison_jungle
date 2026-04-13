@@ -124,3 +124,16 @@ export async function checkout(token) {
 		headers: authHeaders(token)
 	})
 }
+
+export async function fetchOrders(token) {
+	return request('/orders', {
+		headers: authHeaders(token)
+	})
+}
+
+export async function cancelOrder(token, orderId) {
+	return request(`/orders/${orderId}/cancel`, {
+		method: 'PATCH',
+		headers: authHeaders(token)
+	})
+}

@@ -1,6 +1,6 @@
 # Frontend - Maison Jungle
 
-Application React (catalogue + auth + panier connecte a l'API backend).
+Application React connectee a l'API backend.
 
 ## Prerequis
 
@@ -15,7 +15,7 @@ npm install
 
 ## Variables d'environnement
 
-Copiez `.env.example` en `.env` puis adaptez si besoin:
+Copiez .env.example en .env:
 
 ```env
 REACT_APP_API_URL=http://localhost:4000/api
@@ -27,23 +27,34 @@ REACT_APP_API_URL=http://localhost:4000/api
 npm start
 ```
 
-Application disponible sur http://localhost:3000
+Application: http://localhost:3000
 
-## Fonctionnalites front
+## Fonctionnalites
 
-- Authentification JWT (inscription/connexion)
-- Catalogue avec pagination + recherche + filtre categorie
-- Panier synchronise via API (plus de localStorage panier)
-- Checkout via backend
+- auth complete (inscription, connexion, session)
+- catalogue (recherche, filtre categorie, pagination)
+- panier temps reel (ajout, suppression, quantite, clear)
+- checkout
+- panneau Mes commandes:
+	- liste des commandes utilisateur
+	- detail des articles
+	- statut des commandes
+	- annulation d'une commande placee
 
-## Tests
+## UX/UI
+
+- layout modernise avec colonne laterale
+- panneau panier + panneau commandes
+- feedback utilisateur plus clair (loading, erreurs, actions)
+- design responsive desktop/mobile
+
+## Scripts utiles
 
 ```bash
 npm test -- --watchAll=false
-```
-
-## Build production
-
-```bash
 npm run build
 ```
+
+## Notes dev
+
+- Le message `[HMR] Waiting for update signal from WDS...` est normal en mode developpement.

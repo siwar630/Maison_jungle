@@ -1,0 +1,142 @@
+.lmj-orders-panel {
+	background: linear-gradient(160deg, #fff, #f4f8ed);
+	border: 1px solid var(--border);
+	border-radius: 18px;
+	padding: 14px;
+	box-shadow: 0 12px 30px rgba(23, 32, 21, 0.08);
+	animation: fadeUp 0.45s ease-out;
+}
+
+.lmj-orders-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 10px;
+}
+
+.lmj-orders-head h2 {
+	margin: 0;
+	font-size: 1.2rem;
+}
+
+.lmj-orders-head p {
+	margin: 4px 0 0;
+	color: var(--text-muted);
+	font-size: 0.9rem;
+}
+
+.lmj-orders-head button {
+	border: 1px solid var(--border);
+	background: #fff;
+	border-radius: 10px;
+	padding: 8px 10px;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.lmj-orders-head button:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.lmj-orders-error {
+	color: #ae2f2f;
+	display: block;
+	margin-top: 10px;
+}
+
+.lmj-orders-empty {
+	margin-top: 12px;
+	padding: 10px;
+	border: 1px dashed var(--border);
+	border-radius: 10px;
+	color: var(--text-muted);
+	background: #fff;
+}
+
+.lmj-orders-list {
+	list-style: none;
+	padding: 0;
+	margin: 12px 0 0;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.lmj-order-card {
+	border: 1px solid var(--border);
+	background: #fff;
+	border-radius: 12px;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.lmj-order-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+}
+
+.lmj-order-badge {
+	text-transform: uppercase;
+	font-size: 0.72rem;
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	padding: 4px 8px;
+	border-radius: 999px;
+	background: #e5f2e8;
+	color: #1f5f3f;
+}
+
+.lmj-order-badge.is-cancelled {
+	background: #f8e4e2;
+	color: #a73a35;
+}
+
+.lmj-order-date {
+	margin: 0;
+	font-size: 0.82rem;
+	color: var(--text-muted);
+}
+
+.lmj-order-items {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.lmj-order-items li {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	font-size: 0.9rem;
+}
+
+.lmj-order-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 8px;
+	border-top: 1px solid #e6ecdc;
+}
+
+.lmj-order-card button {
+	border: none;
+	background: linear-gradient(90deg, #cd4a43, #b13d36);
+	color: #fff;
+	padding: 8px 10px;
+	border-radius: 9px;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.lmj-order-card button:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}

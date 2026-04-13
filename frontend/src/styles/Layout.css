@@ -5,6 +5,16 @@
 	align-items: flex-start;
 }
 
+.lmj-side-panel {
+	width: 340px;
+	min-width: 320px;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	position: sticky;
+	top: 20px;
+}
+
 .lmj-app {
 	max-width: 1240px;
 	margin: 0 auto;
@@ -42,6 +52,12 @@
 	.lmj-layout-inner {
 		flex-direction: column;
 		padding: 16px;
+	}
+
+	.lmj-side-panel {
+		width: 100%;
+		min-width: 0;
+		position: static;
 	}
 }
 
