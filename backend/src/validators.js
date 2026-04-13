@@ -1,11 +1,27 @@
 const { z } = require('zod')
 
+const emailSchema = z
+	.string()
+	.trim()
+	.toLowerCase()
+	.email('Email invalide')
+	.max(255)
+
 const registerSchema = z.object({
-	email: z.string().trim().email(),
-	password: z.string().trim().min(6).max(100)
+	email: emailSchema,
+	password: z
+		.string()
+		.trim()
+		.min(8, 'Le mot de passe doit contenir au moins 8 caracteres')
+		.max(100)
+		.regex(/[A-Za-z]/, 'Le mot de passe doit contenir au moins une lettre')
+		.regex(/[0-9]/, 'Le mot de passe doit contenir au moins un chiffre')
 })
 
-const loginSchema = registerSchema
+const loginSchema = z.object({
+	email: emailSchema,
+	password: z.string().trim().min(1, 'Mot de passe requis').max(100)
+})
 
 const cartAddSchema = z
 	.object({

@@ -36,22 +36,31 @@
 }
 
 .lmj-auth-panel {
-	display: flex;
-	gap: 10px;
-	margin-top: 12px;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 8px;
+	margin-top: 16px;
 }
 
 .lmj-auth-panel input,
 .lmj-auth-panel button {
-	padding: 8px 10px;
-	border-radius: 10px;
+	padding: 10px 12px;
+	border-radius: 12px;
 	border: 1px solid var(--border);
+}
+
+.lmj-auth-panel label {
+	font-size: 0.85rem;
+	font-weight: 700;
+	color: var(--text-muted);
 }
 
 .lmj-auth-panel button {
 	cursor: pointer;
-	background: #fff;
+	background: linear-gradient(90deg, var(--brand), var(--brand-deep));
+	color: #fff;
+	border: none;
+	font-weight: 700;
 }
 
 .lmj-hero-actions {
@@ -101,7 +110,7 @@
 	width: min(520px, 100%);
 	background: #fff;
 	border-radius: 20px;
-	padding: 20px;
+	padding: 24px;
 	box-shadow: var(--shadow);
 	border: 1px solid var(--border);
 }
@@ -122,10 +131,49 @@
 	line-height: 1;
 }
 
+.lmj-auth-switch {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 8px;
+	background: #eef3e7;
+	border-radius: 12px;
+	padding: 4px;
+	margin-top: 16px;
+}
+
+.lmj-auth-switch button {
+	padding: 10px 8px;
+	border-radius: 10px;
+	border: 1px solid transparent;
+	background: transparent;
+	font-weight: 700;
+	cursor: pointer;
+	color: var(--text-muted);
+	transition: all 0.2s ease;
+}
+
+.lmj-auth-switch button.is-active {
+	background: #fff;
+	border-color: var(--border);
+	color: var(--text);
+	box-shadow: 0 8px 18px rgba(23, 32, 21, 0.08);
+}
+
 .lmj-auth-actions {
 	display: flex;
-	gap: 10px;
-	flex-wrap: wrap;
+	margin-top: 8px;
+}
+
+.lmj-auth-actions button {
+	width: 100%;
+}
+
+.lmj-password-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.9rem;
+	margin-top: 2px;
 }
 
 @media (max-width: 640px) {

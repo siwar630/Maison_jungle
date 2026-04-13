@@ -2,6 +2,15 @@
 
 API Node.js/Express avec Prisma ORM connectee a PostgreSQL.
 
+## Structure backend
+
+Le code est organise en couches pour faciliter la lecture et l'evolution:
+
+- `src/controllers`: gere HTTP (req/res) uniquement
+- `src/services`: logique metier et acces Prisma
+- `src/routes`: declaration des endpoints
+- `src/middlewares`: auth JWT et gestion d'erreurs
+
 ## Prerequis
 
 - Node.js 20+
@@ -58,6 +67,7 @@ API disponible sur http://localhost:4000
 
 - Validation des payloads avec Zod
 - Gestion d'erreurs centralisee (messages API coherents)
+- Authentification JWT avec mot de passe hashe (`bcrypt`)
 
 ## Tests
 
